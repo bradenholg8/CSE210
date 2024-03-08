@@ -2,58 +2,56 @@ using System;
 
 public class Fraction
 {
-    private int _top;
-    private int _bottom;
+    private int numerator;
+    private int denominator;
 
     public Fraction()
     {
-        _top = 1;
-        _bottom = 1;
+        numerator = 1;
+        denominator = 1;
     }
 
-    public Fraction(int wholeNumber)
+    public Fraction(int num)
     {
-        _top = wholeNumber;
-        _bottom = 1;
+        numerator = num;
+        denominator = 1;
     }
 
-    public Fraction(int top, int bottom)
+    public Fraction(int num, int denom)
     {
-        _top = top;
-        _bottom = bottom;
+        numerator = num;
+        denominator = denom;
     }
 
-    public int GetTop()
+    public int GetNumerator()
     {
-        return _top;
+        return numerator;
     }
 
-    public void SetTop(int top)
+    public void SetNumerator(int num)
     {
-        _top = top;
+        numerator = num;
     }
 
-    public int GetBottom()
+    public int GetDenominator()
     {
-        return _bottom;
+        return denominator;
     }
 
-    public void SetBottom(int bottom)
+    public void SetDenominator(int denom)
     {
-        if (bottom != 0)
-            _bottom = bottom;
+        if (denom != 0)
+            denominator = denom;
         else
             Console.WriteLine("Denominator cannot be zero.");
     }
 
     public string GetFractionString()
     {
-        string text = $"{_top}/{_bottom}";
-        return text;
+        return $"{numerator}/{denominator}";
     }
-
     public double GetDecimalValue()
     {
-        return (double)_top / (double)_bottom;
+        return (double)numerator / denominator;
     }
 }
