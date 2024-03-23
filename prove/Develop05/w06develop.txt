@@ -1,0 +1,1 @@
+[{"Name":"Give a talk","Description":"Give a talk in Sacrament when asked","Points":100,"IsComplete":false},{"Name":"Study scriptures","Description":"Study scriptures for 10 minutes","Points":50,"IsComplete":false},{"Name":"Attend Temple","Description":"Attend and perform any ordinance","Points":50,"IsComplete":false}]
