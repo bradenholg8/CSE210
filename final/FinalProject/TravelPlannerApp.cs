@@ -39,7 +39,6 @@ public class TravelPlannerApp
         Console.WriteLine("Welcome to the Travel Planner App!");
         Console.WriteLine("Please provide the following details:");
 
-        // Get destination details
         Console.Write("Destination Name: ");
         string destinationName = Console.ReadLine();
 
@@ -49,10 +48,8 @@ public class TravelPlannerApp
         Console.Write("Destination Location: ");
         string destinationLocation = Console.ReadLine();
 
-        // Add destination
         AddDestination(destinationName, destinationDescription, destinationLocation);
 
-        // Get accommodation details
         Console.Write("Accommodation Name: ");
         string accommodationName = Console.ReadLine();
 
@@ -65,10 +62,8 @@ public class TravelPlannerApp
         Console.Write("Accommodation Availability: ");
         int accommodationAvailability = Convert.ToInt32(Console.ReadLine());
 
-        // Add accommodation
         AddAccommodation(accommodationName, accommodationType, accommodationPricePerNight, accommodationAvailability);
 
-        // Get activity details
         Console.Write("Number of Activities: ");
         int numberOfActivities = Convert.ToInt32(Console.ReadLine());
 
@@ -79,7 +74,6 @@ public class TravelPlannerApp
             activityNames.Add(Console.ReadLine());
         }
 
-        // Create trip
         Console.Write("Total Budget: ");
         decimal totalBudget = Convert.ToDecimal(Console.ReadLine());
 
@@ -88,7 +82,6 @@ public class TravelPlannerApp
 
     public void CreateTrip(string destinationName, string accommodationName, List<string> activityNames, decimal totalBudget)
     {
-        // Find destination by name
         Destination destination = destinations.Find(d => d.Name == destinationName);
         if (destination == null)
         {
@@ -96,7 +89,6 @@ public class TravelPlannerApp
             return;
         }
 
-        // Find accommodation by name
         Accommodation accommodation = accommodations.Find(a => a.Name == accommodationName);
         if (accommodation == null)
         {
@@ -104,7 +96,6 @@ public class TravelPlannerApp
             return;
         }
 
-        // Find activities by names
         List<Activity> selectedActivities = new List<Activity>();
         foreach (var activityName in activityNames)
         {
@@ -114,11 +105,8 @@ public class TravelPlannerApp
                 selectedActivities.Add(activity);
             }
         }
+        Budget budget = new Budget(totalBudget); 
 
-        // Create budget
-        Budget budget = new Budget(totalBudget); // Adjust budget allocation as needed
-
-        // Create trip
         Trip trip = new Trip(destination, accommodation, selectedActivities, budget);
         user.SavedTrips.Add(trip);
         Console.WriteLine("Trip created successfully.");

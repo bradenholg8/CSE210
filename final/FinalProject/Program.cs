@@ -8,7 +8,6 @@ class Program
         {
             TravelPlannerApp app = new TravelPlannerApp("John");
 
-            // Interactive menu
             while (true)
             {
                 Console.WriteLine("Choose an option:");
